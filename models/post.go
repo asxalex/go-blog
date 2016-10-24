@@ -135,6 +135,9 @@ func File2DB() {
 	//filename := "posts/test.md"
 	filenames := getFilelist("posts/")
 	for _, filename := range filenames {
+		if !strings.HasSuffix(filename, ".md") {
+			continue
+		}
 		post := ParseFile(filename)
 		if post == nil {
 			fmt.Println("parse file " + filename + " error")
