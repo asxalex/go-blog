@@ -1,0 +1,41 @@
+<div id="header">
+    <div id="header-warp">
+        <ul id="header-nav">
+            <li><a href="/">首页</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="bd" class="wrp clear-fix">
+    <div id="main">
+        <div id="detail-title">
+            <ul id="single-nav">
+                <li>Tags:> </a></li>
+                {{range .post.Tags}}
+                <li class="title-active">
+                    <a href="/tags/{{.Name}}" title="tagname: {{.Name}}" rel="bookmark">{{.Name}}</a>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+        <div id="post-1951"
+            class="post-1951 post type-post status-publish format-standard hentry category-meida-report">
+            <div class="post-hd">
+                <h1 class="title">{{.post.Title}}</h1>
+            </div>
+            <div class="date-read">
+                <i class="icon-date"></i>
+                <span class="date">{{.post.Date}}.</span>&nbsp;&nbsp;{{.post.Viewed}} 次阅读
+            </div>
+            <div class="post-bd">
+                {{.post.Body | markDown}}
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+<div id="previous-next-nav">
+</div>
+

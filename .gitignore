@@ -1,0 +1,5 @@
+myblog
+.*.swp
+*.db
+*.tmp
+tests

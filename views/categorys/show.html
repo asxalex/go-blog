@@ -1,0 +1,74 @@
+
+<!--
+-->
+<div id="header">
+    <div id="header-warp">
+        <ul id="header-nav">
+            <li><a href="/">asxalex's blog</a></li>
+        </ul>
+    </div>
+</div>
+<br/>
+<!-- <div id="banner" class="noselect"></div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div id="category" class="noselect">
+                <div id="category-title">
+                    <ul>
+                        <li>Tags：</li>
+                            {{range .Tags}}
+                            <li class="cat-item">
+                                <a href="/tags/{{.Name}}">{{.Name}}</a>
+                            </li>
+                            {{end}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="bd" class="wrp clear-fix">
+                <div id="main">
+                    {{range .Posts}}
+                        <div class="post">
+                        <div class="post-hd">
+                            <h1 class="title">
+                                <a href="/posts/{{.Title}}">{{.Title}}</a>
+                            </h1>
+                        </div>
+                        <div class="post-bd">
+                            <p></p>
+                            <p><a href="" class="more-link"></a></p>
+                        </div>
+                        <div class="post-ft">
+                            <a href="/posts/{{.Title}}">阅读全文</a>
+                            <i class="icon-date"></i><span class="date">{{.Date}}</span>
+                        </div>
+                    </div>
+                    {{end}}
+                    <div id="pagenavi" class="noselect">
+                        <ul class="pagination pagination">
+                            {{range $idx, $val := .Tabs}}
+                            {{if $idx}}
+
+                            {{if eq $idx $.Current}}
+                            <li class="active">
+                            {{else}}
+                            <li>
+                            {{end}}
+                                <!--<span class="first-page ">-->
+                                <a href="/posts?offset={{$val}}">{{$idx}}</a>
+                                        <!--</span> -->
+                            </li>
+                            {{end}}
+                            {{end}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "shared/_navigation.html"}}
+    </div>
+</div>
+
+

@@ -1,0 +1,56 @@
+
+<div id="header">
+    <div id="header-warp">
+        <ul id="header-nav">
+            <li><a href="/">asxalex's blog</a></li>
+        </ul>
+    </div>
+</div>
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div id="category" class="noselect">
+                <div id="category-title">
+                    <ul>
+                        <li>Current Tag：</li>
+                            <li class="cat-item">
+                                <a href="/tags/{{.Tag.Name}}">{{.Tag.Name}}</a>
+                            </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="bd" class="wrp clear-fix">
+                <div id="main">
+                    {{range .Tag.Posts}}
+                        <div class="post">
+                        <div class="post-hd">
+                            <h1 class="title">
+                                <a href="/posts/{{.Title}}">{{.Title}}</a>
+                            </h1>
+                        </div>
+                        <div class="post-bd">
+                            <p></p>
+                            <p><a href="" class="more-link"></a></p>
+                        </div>
+                        <div class="post-ft">
+                            <a href="/posts/{{.Title}}">阅读全文</a>
+                            <i class="icon-date"></i><span class="date">{{.Date}}</span>
+                        </div>
+                    </div>
+                    {{end}}
+                    <div id="pagenavi" class="noselect">
+                        <span class="first-page ">
+                            <!-- <%= will_paginate @articles %> -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "shared/_navigation.html"}}
+    </div>
+</div>
+
+
